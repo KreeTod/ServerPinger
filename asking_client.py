@@ -8,7 +8,7 @@ ADDR = "127.0.0.1"#dunamic
 FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"
 
-#client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 json_temporary_here = [
     {
@@ -56,8 +56,6 @@ for item in json_temporary_here:
     for service in item["services"]:
         print(service)
 
-#client.connect((ADDR, PORT))
-#client.close()
 
 def send(msg):
     message = msg.encode(FORMAT)
@@ -70,7 +68,15 @@ def send(msg):
     print(recieved_msg)
     
 
+
+def ask_server():
+
+    pass
+
 #while True():
 #    pass
 
+client.connect((ADDR, PORT))
 
+send("sshd")
+client.close()
